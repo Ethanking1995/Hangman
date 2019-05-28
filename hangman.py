@@ -32,7 +32,7 @@ while mistakes < max_mistakes:
 	if guess==secret_word:
 		print(f'Congratulations! You have guessed the secret word! The secret word was {secret_word}')
 		break
-	#check to see if guess has alreday been guessed
+	#check to see if guess has already been guessed
 	if guess in letters_guessed:
 		print('Oops, you have already guessed that! Try again')
 		guess=input('Guess a word or a letter: ').lower()
@@ -40,8 +40,9 @@ while mistakes < max_mistakes:
 	elif guess not in letters_guessed:
 		#add guess to guess list
 		letters_guessed.append(guess)
-		#conditional time: check if the guess is in secret word or not, or if they have guessed a word and not a letter
-		if guess in secret_word:
+		#conditionals: check if the guess is in secret word or not, or if they have guessed a word and not a letter
+		if guess in secret_word and len(guess)==1:
+
 			#break loop if the word has been guessed and return a congratulatory message
 			if word_guessed():
 				print_guessed()
